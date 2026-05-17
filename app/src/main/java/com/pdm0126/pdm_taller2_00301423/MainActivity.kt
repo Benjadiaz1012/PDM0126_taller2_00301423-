@@ -20,10 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PDMTaller200301423Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    RestaurantApp()
                 }
             }
         }

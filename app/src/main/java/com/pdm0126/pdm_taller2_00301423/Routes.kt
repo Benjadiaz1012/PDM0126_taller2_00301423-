@@ -10,10 +10,7 @@ sealed class Routes : NavKey {
     }
 
     @Serializable
-    data class Search(
-        val name: String
-    ) : Routes()
-
+    data object Search : Routes()
     @Serializable
     data class Detail(
         val id: Int
