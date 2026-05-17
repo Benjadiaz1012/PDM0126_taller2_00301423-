@@ -7,4 +7,7 @@ class RestaurantApiRepository : RestaurantRepository{
     override suspend fun getResturants(): List<Restaurant> {
         return sampleRestaurants
     }
+    override suspend fun getRestaurantById(id: Int): Restaurant? {
+        return sampleRestaurants.find { it.id == id }
+    }
 }

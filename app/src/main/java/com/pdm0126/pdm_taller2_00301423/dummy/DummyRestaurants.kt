@@ -10,7 +10,7 @@ val sampleRestaurants = listOf(
         name = "Pizza Place",
         description = "Las mejores pizzas artesanales de la ciudad",
         imageUrl = "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=781",
-        categories = listOf("Italiana", "Pizzas", "Casera", "Variedad"),
+        categories = listOf("Italiana", "Pizza", "Casera", "Variedad"),
         menu = listOf(
             Dish(
                 id = 1,

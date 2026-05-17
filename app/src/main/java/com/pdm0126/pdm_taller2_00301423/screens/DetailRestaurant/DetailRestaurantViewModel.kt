@@ -1,4 +1,4 @@
-package com.pdm0126.pdm_taller2_00301423.screens.ListRestaurant
+package com.pdm0126.pdm_taller2_00301423.screens.DetailRestaurant
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,18 +9,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ListRestaurantViewModel : ViewModel() {
+class DetailRestaurantViewModel : ViewModel() {
     private val restaurantRepository: RestaurantRepository = RestaurantApiRepository()
-    private val _restaurants = MutableStateFlow<List<Restaurant>>(emptyList())
-    val restaurants = _restaurants.asStateFlow()
 
-    init {
-        loadResturants()
-    }
+    private val _restaurant = MutableStateFlow<Restaurant?>(null)
+    val restaurant = _restaurant.asStateFlow()
 
-    fun loadResturants() {
+    fun loadRestaurant(id: Int) {
         viewModelScope.launch {
-            _restaurants.value = restaurantRepository.getResturants()
+            _restaurant.value = restaurantRepository.getRestaurantById(id)
         }
     }
 }

@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.pdm0126.pdm_taller2_00301423.dummy.sampleRestaurants
-import com.pdm0126.pdm_taller2_00301423.screens.DetailRestaurant.DeatilRestaurantScreen
+import com.pdm0126.pdm_taller2_00301423.screens.DetailRestaurant.DetailRestaurantScreen
 import com.pdm0126.pdm_taller2_00301423.screens.ListRestaurant.ListRestaurantScreen
 import com.pdm0126.pdm_taller2_00301423.screens.SearchRestaurant.SearchRestaurantScreen
 
@@ -27,10 +26,22 @@ fun RestaurantApp() {
                 )
             }
             entry<Routes.Search> {
-                SearchRestaurantScreen()
+                SearchRestaurantScreen(
+                    onRestaurantClick = { id ->
+                        backStack.add(Routes.Detail(id))
+                    },
+                    onBackClick = {
+                        backStack.removeLastOrNull()
+                    }
+                )
             }
-            entry<Routes.Detail> {
-                DeatilRestaurantScreen()
+            entry<Routes.Detail> { route ->
+                DetailRestaurantScreen(
+                    restaurantId = route.id,
+                    onBackClick = {
+                        backStack.removeLastOrNull()
+                    }
+                )
             }
         }
     )

@@ -11,6 +11,7 @@ sealed class Routes : NavKey {
 
     @Serializable
     data object Search : Routes()
+
     @Serializable
     data class Detail(
         val id: Int
